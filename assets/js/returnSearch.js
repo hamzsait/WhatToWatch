@@ -14,7 +14,6 @@ function search (){
     .catch(error => console.log('error', error));
 }
 
-listDisplay = false
 
 function displayText(file){
 
@@ -23,22 +22,24 @@ function displayText(file){
   parent.innerHTML = ""
 
   for (x = 0; x < file.results.length; x++){
-    var title = document.createElement('li')
+    title = document.createElement('li')
     title.textContent = file.results[x].title
     title.setAttribute("class","listItem")
     document.querySelector("#results").appendChild(title)
   }
 
-  listDisplay = true
+  $(".listItem").on("click",function(){
+    console.log(this.textContent)
+  })
+
 }
 
 document.querySelector("#submit").addEventListener("click", function(){
   search()
 })
 
-document.querySelector(".listItem").addEventListener("click", function(){
-  console.log(this.textContent)
-})
+
+
 
 
 
