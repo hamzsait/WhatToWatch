@@ -1,3 +1,34 @@
+var posterSection = document.getElementById('postersection');
+var movieTitle = document.getElementById('movietitle');
+var releaseYear = document.getElementById('releaseyear');
+var movieGenre = document.getElementById('genre');
+var rating = document.getElementById('rated');
+var plot = document.getElementById('plot');
+var movieReviews = document.getElementById('reviews');
+
+// var movie = {submitmovie}.value.trim();
+
+function renderimdb(title){
+    posterSection.innerHTML = ''
+    var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+title
+    fetch(imdbSearch)
+    .then (function(response){
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data);
+        var img = document.createElement('img');
+        img.src = data.Poster;
+        posterSection.append(img)
+        movieTitle.textContent = data.Title;
+        releaseYear.textContent = `(${data.Year})`;
+        console.log(data.Year);
+        movieGenre.textContent = data.Genre;
+        rating.textContent = data.Rated;
+        plot.textContent = data.Plot;
+    })
+}
+
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -29,7 +60,7 @@ function displayText(file){
   }
 
   $(".listItem").on("click",function(){
-    console.log(this.textContent)
+    renderimdb(this.textContent)
   })
 
 }
