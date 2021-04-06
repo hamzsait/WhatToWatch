@@ -1,13 +1,9 @@
-fetch("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=18&page=1&language=en", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "",
-		"x-rapidapi-host": "streaming-availability.p.rapidapi.com"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("https://api.themoviedb.org/3/movie/550?api_key=230e89ce98b6d55971d6dd92298b9018", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
