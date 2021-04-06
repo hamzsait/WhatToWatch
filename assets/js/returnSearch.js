@@ -9,6 +9,7 @@ var movieReviews = document.getElementById('reviews');
 // var movie = {submitmovie}.value.trim();
 
 function renderimdb(title){
+    posterSection.innerHTML = ''
     var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+title
     fetch(imdbSearch)
     .then (function(response){
