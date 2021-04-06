@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"
   </head>
   <body>
-  <section class="section">
+  <section class="section hide">
     <div class="container">
       <h1 class="title">
         Hello World
@@ -17,5 +18,17 @@
       </p>
     </div>
   </section>
+  <div class="columns">
+    <div id="postersection"class="column is-half">
+    </div>
+    <div id= "infoSection" class="column is-half">
+      <h1 id= "movietitle"></h1><span id="releaseyear"> </span>
+      <h2 id ="genre"></h2>
+      <div class="rated"><span id="rated"></span></div>
+      <p id="plot"></p>
+      <p id="reviews"></p>
+    </div>
+  </div>
   </body>
+  <script src="assets/js/imdb.js"></script>
 </html>
