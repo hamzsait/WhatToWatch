@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .hide {
     display: none;
 }
@@ -48,3 +49,10 @@ img {
     color: grey;
 }
 
+=======
+li:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+    color:blue;
+}
+>>>>>>> 20ea94723e63bc65907ffc9e71798be8d9d792df
