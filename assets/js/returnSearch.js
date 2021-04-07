@@ -5,10 +5,12 @@ var movieGenre = document.getElementById('genre');
 var rating = document.getElementById('rated');
 var plot = document.getElementById('plot');
 var movieReviews = document.getElementById('reviews');
+var movieModal = document.getElementById('movieDisplay');
 
 // var movie = {submitmovie}.value.trim();
 
 function renderimdb(title){
+    movieModal.classList.toggle("is-active");
     posterSection.innerHTML = ''
     var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+title
     fetch(imdbSearch)
@@ -16,7 +18,6 @@ function renderimdb(title){
         return response.json();
     })
     .then (function(data){
-        console.log(data);
         var img = document.createElement('img');
         img.src = data.Poster;
         posterSection.append(img)
@@ -69,7 +70,15 @@ document.querySelector("#submit").addEventListener("click", function(){
   search()
 })
 
+// closing modal
+var closeModal = document.querySelectorAll(".closemodal")
 
+$(document).on('click', '.closemodal', function(){
+  console.log("im closing");
+  movieModal.classList.toggle("is-active");
+
+
+})
 
 
 

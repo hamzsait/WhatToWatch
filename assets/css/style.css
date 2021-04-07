@@ -26,25 +26,26 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+    padding: 3%;
 }
 
 #postersection {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 #infoSection {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 #movietitle {
-    font-size: 300%;
+    font-size: 200%;
     font-weight: 700;
     display: inline;
 }
 
 #releaseyear{
     margin-left: 10px;
-    font-size: 290%;
+    font-size: 190%;
     color: grey;
 }
 
@@ -52,4 +53,15 @@ li:hover{
     text-decoration-line: underline;
     cursor: pointer;
     color:blue;
+}
+
+.modal-content{
+    background-color: white;
+    border-radius: 10px;
+    width: 80%;
+    height: fit-content;
+}
+
+#infoSection {
+    width: 40%;
 }
