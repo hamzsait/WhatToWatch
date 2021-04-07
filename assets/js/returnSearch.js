@@ -76,26 +76,11 @@ var closeModal = document.querySelectorAll(".closemodal")
 $(document).on('click', '.closemodal', function(){
   console.log("im closing");
   movieModal.classList.toggle("is-active");
-
-
-})
-
-// "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query="
-
-// function lookingforid(){
-//   var imdbSearch = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=batman"
-//   fetch(imdbSearch)
-//   .then (function(response){
-//       return response.json();
-//   })
-//   .then (function(data){
-//     console.log(data);}
-//   )};
-//   lookingforid()
+});
 
 
   //random button
-  function randomIDGenerator (){
+function randomIDGenerator (){
     var idLength = Math.floor(Math.random() * Math.floor(6));
     var randomID= [];
     var temp = (Math.floor(Math.random() * Math.floor(9))) + 1;
@@ -104,13 +89,22 @@ $(document).on('click', '.closemodal', function(){
       temp = Math.floor(Math.random() * Math.floor(10));
       randomID.push(temp);
     }
-    randomID =randomID.join("")
-    return 
+    randomID = randomID.join("")
+    return randomID
   }
 
-console.log(randomIDGenerator());
 
-function randomBtn () {
 
+function randomMovieGenerator() {
+  var tempID = randomIDGenerator();
+  var randomFetch = `https://api.themoviedb.org/3/movie/${tempID}?api_key=230e89ce98b6d55971d6dd92298b9018&language=en-US`
+  fetch(randomFetch)
+  .then(function(response){
+    return response.json();
+  })
+  .then (function(data){
+    console.log(data.title);
+    renderimdb(data.title)
+  })
 }
 
