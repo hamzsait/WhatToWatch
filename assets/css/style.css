@@ -65,3 +65,12 @@ li:hover{
 #infoSection {
     width: 40%;
 }
+
+#lists{
+    display: flex;
+}
+
+
+#favorite:hover{
+    background-color: yellow;
+}

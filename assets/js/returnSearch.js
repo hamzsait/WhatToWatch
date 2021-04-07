@@ -55,8 +55,15 @@ function displayText(file){
 
   for (x = 0; x < file.results.length; x++){
     title = document.createElement('li')
-    title.textContent = file.results[x].title
+    title.textContent = file.results[x].title + "  "
     title.setAttribute("class","listItem")
+    favorite = document.createElement("button")
+    favorite.setAttribute("id","favorite")
+    star = document.createElement("i")
+    star.setAttribute("class","fa fa-star")
+    star.setAttribute("id","star")
+    favorite.append(star)
+    title.append(favorite)
     document.querySelector("#results").appendChild(title)
   }
 
