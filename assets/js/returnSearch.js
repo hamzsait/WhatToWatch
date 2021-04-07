@@ -86,11 +86,22 @@ function favorites(){
   $(".favorite").on("click",function(){
     if ($(this).css("background-color") == "rgb(239, 239, 239)"){
       $(this).css("background-color", "yellow")
-      console.log("yellow boi")
+
+
+      var items = ($(this).parent().parent().children())
+
+      for (x = 0; x<items.length; x++){
+        if ($($($(items[x]).children()[0])).css("background-color") == "rgb(255, 255, 0)")
+          console.log($($(items[x]).children()[1]).innerHTML)
+      }
+
+
     }
     else{
       $(this).css("background-color", "rgb(239, 239, 239)")
         console.log("grey button")
+        console.log($(this).parent().parent())
+        console.log($(this).parent().parent().length)
       }
     })
   }
