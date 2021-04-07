@@ -39,7 +39,6 @@ var requestOptions = {
 function search (){
 
   requestURL = String("https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + document.getElementById("search").value)
-
   fetch(requestURL, requestOptions)
     .then(response => response.text())
     .then(result => displayText(JSON.parse(result)))
@@ -58,12 +57,13 @@ function displayText(file){
     title.textContent = file.results[x].title
     title.setAttribute("class","listItem")
     document.querySelector("#results").appendChild(title)
+    console.log(this.results[x])
   }
 
   $(".listItem").on("click",function(){
     renderimdb(this.textContent)
   })
-
+  ;
 }
 
 document.querySelector("#submit").addEventListener("click", function(){
@@ -80,7 +80,37 @@ $(document).on('click', '.closemodal', function(){
 
 })
 
+// "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query="
+
+// function lookingforid(){
+//   var imdbSearch = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=batman"
+//   fetch(imdbSearch)
+//   .then (function(response){
+//       return response.json();
+//   })
+//   .then (function(data){
+//     console.log(data);}
+//   )};
+//   lookingforid()
 
 
+  //random button
+  function randomIDGenerator (){
+    var idLength = Math.floor(Math.random() * Math.floor(6));
+    var randomID= [];
+    var temp = (Math.floor(Math.random() * Math.floor(9))) + 1;
+    randomID.push(temp)
+    for (i = 0; i < idLength; i++) {
+      temp = Math.floor(Math.random() * Math.floor(10));
+      randomID.push(temp);
+    }
+    randomID =randomID.join("")
+    return 
+  }
 
+console.log(randomIDGenerator());
+
+function randomBtn () {
+
+}
 
