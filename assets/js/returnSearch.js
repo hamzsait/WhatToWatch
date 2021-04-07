@@ -79,6 +79,10 @@ function displayText(file){
     renderimdb(this.textContent)
   })
 
+  favorites()
+}
+
+function favorites(){
   $(".favorite").on("click",function(){
 
     if ($(this).css("background-color") == "rgb(239, 239, 239)"){
@@ -98,13 +102,14 @@ function displayText(file){
 
       title = document.createElement('li')
       title.textContent = $(this).parent().children()[1].textContent
-      title.setAttribute("class","listItem")
+      title.setAttribute("class","favoriteItem")
       title.style.padding = "3px"
       contain.appendChild(title)
 
       document.querySelector("#favorites").appendChild(contain)
 
     }
+
     else{
       $(this).css("background-color", "rgb(239, 239, 239)")
 
@@ -117,10 +122,11 @@ function displayText(file){
       }
     }
 
-
-
+    $(".favoriteItem").on("click",function(){
+      console.log("here here")
+      renderimdb(this.textContent)
+    })
   })
-
 }
 
 document.querySelector("#submit").addEventListener("click", function(){
@@ -133,8 +139,6 @@ var closeModal = document.querySelectorAll(".closemodal")
 $(document).on('click', '.closemodal', function(){
   console.log("im closing");
   movieModal.classList.toggle("is-active");
-
-
 })
 
 
