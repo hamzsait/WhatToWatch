@@ -86,22 +86,11 @@ function favorites(){
   $(".favorite").on("click",function(){
     if ($(this).css("background-color") == "rgb(239, 239, 239)"){
       $(this).css("background-color", "yellow")
-
-
-      var items = ($(this).parent().parent().children())
-
-      for (x = 0; x<items.length; x++){
-        if ($($($(items[x]).children()[0])).css("background-color") == "rgb(255, 255, 0)")
-          console.log($($(items[x]).children()[1]).innerHTML)
-      }
-
-
+      updateLocalStorage(this)
     }
     else{
       $(this).css("background-color", "rgb(239, 239, 239)")
-        console.log("grey button")
-        console.log($(this).parent().parent())
-        console.log($(this).parent().parent().length)
+        updateLocalStorage(this)
       }
     })
   }
@@ -117,6 +106,29 @@ $(document).on('click', '.closemodal', function(){
   console.log("im closing");
   movieModal.classList.toggle("is-active");
 })
+
+function updateLocalStorage(start){
+
+  favoriteMovies = []
+
+  var items = ($(start).parent().parent().children())
+
+  console.log(items)
+
+  for (x = 0; x<items.length; x++){
+    if (($($($(items[x]).children()[0])).css("background-color") == "rgb(255, 255, 0)")){
+
+      console.log(($($($(items[x]).children()[0])).css("background-color") == "rgb(255, 255, 0)"))
+
+      adder = ($($(items[x]).children()[1])[0].outerText)
+      
+      favoriteMovies.push(adder)
+    }
+  }
+
+  console.log(favoriteMovies)
+    
+}
 
 
 
