@@ -82,6 +82,18 @@ function displayText(file){
   favorites()
 }
 
+document.querySelector("#submit").addEventListener("click", function(){
+  search()
+})
+
+// closing modal
+var closeModal = document.querySelectorAll(".closemodal")
+
+$(document).on('click', '.closemodal', function(){
+  console.log("im closing");
+  movieModal.classList.toggle("is-active");
+})
+
 function favorites(){
   $(".favorite").on("click",function(){
     if ($(this).css("background-color") == "rgb(239, 239, 239)"){
@@ -94,18 +106,6 @@ function favorites(){
       }
     })
   }
-
-document.querySelector("#submit").addEventListener("click", function(){
-  search()
-})
-
-// closing modal
-var closeModal = document.querySelectorAll(".closemodal")
-
-$(document).on('click', '.closemodal', function(){
-  console.log("im closing");
-  movieModal.classList.toggle("is-active");
-})
 
 function updateLocalStorage(start){
 
