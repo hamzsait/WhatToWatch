@@ -53,13 +53,13 @@ function displayText(file){
 
   parent.innerHTML = ""
 
-  for (x = 0; x < file.results.length; x++){
+  for (x = 0; x < 10; x++){
 
     contain = document.createElement("div")
     contain.style.display = "flex"
 
     favorite = document.createElement("button")
-    favorite.setAttribute("id","favorite")
+    favorite.setAttribute("class","favorite")
     star = document.createElement("i")
     star.setAttribute("class","fa fa-star")
     star.setAttribute("id","star")
@@ -79,6 +79,48 @@ function displayText(file){
     renderimdb(this.textContent)
   })
 
+  $(".favorite").on("click",function(){
+
+    if ($(this).css("background-color") == "rgb(239, 239, 239)"){
+      $(this).css("background-color", "yellow")
+
+      contain = document.createElement("div")
+      contain.style.display = "flex"
+
+      favorite = document.createElement("button")
+      favorite.setAttribute("class","favorite")
+      favorite.style.backgroundColor = "yellow"
+      star = document.createElement("i")
+      star.setAttribute("class","fa fa-star")
+      star.setAttribute("id","star")
+      favorite.append(star)
+      contain.appendChild(favorite)
+
+      title = document.createElement('li')
+      title.textContent = $(this).parent().children()[1].textContent
+      title.setAttribute("class","listItem")
+      title.style.padding = "3px"
+      contain.appendChild(title)
+
+      document.querySelector("#favorites").appendChild(contain)
+
+    }
+    else{
+      $(this).css("background-color", "rgb(239, 239, 239)")
+
+      favorties = $("#favorites").children()
+      
+      for (x = 0; x < favorties.length; x++){
+        if (favorties[x].textContent == $(this).parent().children()[1].textContent){
+          favorties[x].innerHTML = ""
+        }
+      }
+    }
+
+
+
+  })
+
 }
 
 document.querySelector("#submit").addEventListener("click", function(){
@@ -94,6 +136,8 @@ $(document).on('click', '.closemodal', function(){
 
 
 })
+
+
 
 
 
