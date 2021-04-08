@@ -23,7 +23,6 @@ function renderimdb(title){
         posterSection.append(img)
         movieTitle.textContent = data.Title;
         releaseYear.textContent = `(${data.Year})`;
-        console.log(data.Year);
         movieGenre.textContent = data.Genre;
         rating.textContent = data.Rated;
         plot.textContent = data.Plot;
@@ -53,6 +52,8 @@ function displayText(file){
 
   parent.innerHTML = ""
 
+  local = (localStorage.getItem("favorites").split(","))
+
   for (x = 0; x < file.results.length; x++){
 
 
@@ -69,9 +70,13 @@ function displayText(file){
     star = document.createElement("i")
     star.setAttribute("class","fa fa-star")
     star.setAttribute("id","star")
+
+    if (local.includes(title.textContent)){
+      $(favorite).css("background-color", "yellow")
+    }
+
     favorite.append(star)
     contain.appendChild(favorite)
-    
     contain.appendChild(title)
 
     document.querySelector("#results").appendChild(contain)
@@ -80,6 +85,9 @@ function displayText(file){
   $(".listItem").on("click",function(){
     renderimdb(this.textContent)
   })
+
+  
+  
 
   favorites()
 }
@@ -92,7 +100,6 @@ document.querySelector("#submit").addEventListener("click", function(){
 var closeModal = document.querySelectorAll(".closemodal")
 
 $(document).on('click', '.closemodal', function(){
-  console.log("im closing");
   movieModal.classList.toggle("is-active");
 })
 
@@ -118,15 +125,12 @@ function updateLocalStorage(start, selected){
 
     if(selected){
       if (localStorage.length > 0){
-        console.log("if")
         var movies = []
         movies.push(($(start).parent().children()[1].outerText))
         movies.push((localStorage.getItem("favorites")).split(','))
-        console.log(movies)
         localStorage.setItem("favorites",movies)
       }
       else{
-        console.log("else")
         var movies = []
         movies.push($(start).parent().children()[1].outerText)
         localStorage.setItem("favorites",movies)
