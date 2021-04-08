@@ -23,7 +23,6 @@ function renderimdb(title){
         posterSection.append(img)
         movieTitle.textContent = data.Title;
         releaseYear.textContent = `(${data.Year})`;
-        console.log(data.Year);
         movieGenre.textContent = data.Genre;
         rating.textContent = data.Rated;
         plot.textContent = data.Plot;
@@ -53,17 +52,44 @@ function displayText(file){
 
   parent.innerHTML = ""
 
+  local = (localStorage.getItem("favorites").split(","))
+
   for (x = 0; x < file.results.length; x++){
-    title = document.createElement('li')
+
+
+    var title = document.createElement('li')
     title.textContent = file.results[x].title
     title.setAttribute("class","listItem")
-    document.querySelector("#results").appendChild(title)
+    title.style.padding = "3px"
+    favorite = document.createElement("button")
+    contain = document.createElement("div")
+
+    contain.style.display = "flex"
+
+    favorite.setAttribute("class","favorite")
+    star = document.createElement("i")
+    star.setAttribute("class","fa fa-star")
+    star.setAttribute("id","star")
+
+    if (local.includes(title.textContent)){
+      $(favorite).css("background-color", "yellow")
+    }
+
+    favorite.append(star)
+    contain.appendChild(favorite)
+    contain.appendChild(title)
+
+    document.querySelector("#results").appendChild(contain)
   }
 
   $(".listItem").on("click",function(){
     renderimdb(this.textContent)
   })
 
+  
+  
+
+  favorites()
 }
 
 document.querySelector("#submit").addEventListener("click", function(){
@@ -74,11 +100,57 @@ document.querySelector("#submit").addEventListener("click", function(){
 var closeModal = document.querySelectorAll(".closemodal")
 
 $(document).on('click', '.closemodal', function(){
-  console.log("im closing");
   movieModal.classList.toggle("is-active");
-
-
 })
+
+function uniq(a) {
+  return Array.from(new Set(a));
+}
+
+function favorites(){
+  $(".favorite").on("click",function(){
+    if ($(this).css("background-color") == "rgb(239, 239, 239)"){
+      $(this).css("background-color", "yellow")
+      updateLocalStorage(this, true)
+    }
+    else{
+      $(this).css("background-color", "rgb(239, 239, 239)")
+        updateLocalStorage(this, false)
+      }
+    })
+  }
+
+
+function updateLocalStorage(start, selected){
+
+    if(selected){
+      if (localStorage.length > 0){
+        var movies = []
+        movies.push(($(start).parent().children()[1].outerText))
+        movies.push((localStorage.getItem("favorites")).split(','))
+        localStorage.setItem("favorites",movies)
+      }
+      else{
+        var movies = []
+        movies.push($(start).parent().children()[1].outerText)
+        localStorage.setItem("favorites",movies)
+      }
+    }
+    else{
+      target = ($(start).parent().children()[1].outerText)
+      favoriteList = (localStorage.getItem("favorites").split(","))
+
+      for (x = 0 ; x<favoriteList.length; x++){
+        if (favoriteList[x] == target){
+          favoriteList.splice(x,1)
+        }
+      }
+      localStorage.setItem("favorites",favoriteList)
+    }
+  
+}
+
+
 
 
 
