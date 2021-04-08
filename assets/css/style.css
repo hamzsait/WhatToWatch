@@ -42,7 +42,7 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 100%;
     padding: 3%;
 }
 
@@ -181,10 +181,17 @@ li:hover{
 }
 
 #lists{
-    display: flex;
+  display: flex;
 }
 
 
 #favorite:hover{
-    background-color: yellow;
+  background-color: yellow;
+}
+
+#slideshowcontainer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 60px
 }
