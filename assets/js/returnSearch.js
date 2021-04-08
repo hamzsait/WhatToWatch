@@ -9,8 +9,6 @@ var movieModal = document.getElementById('movieDisplay');
 
 // var movie = {submitmovie}.value.trim();
 
-// add comment 
-
 function renderimdb(title){
     movieModal.classList.toggle("is-active");
     posterSection.innerHTML = ''
