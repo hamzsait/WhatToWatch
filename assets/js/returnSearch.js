@@ -9,8 +9,6 @@ var movieModal = document.getElementById('movieDisplay');
 
 // var movie = {submitmovie}.value.trim();
 
-// add comment
-
 function renderimdb(title){
     movieModal.classList.toggle("is-active");
     posterSection.innerHTML = ''
@@ -107,10 +105,6 @@ $(document).on('click', '.closemodal', function(){
   movieModal.classList.toggle("is-active");
 })
 
-function uniq(a) {
-  return Array.from(new Set(a));
-}
-
 function favorites(){
   $(".favorite").on("click",function(){
     if ($(this).css("background-color") == "rgb(239, 239, 239)"){
@@ -152,10 +146,3 @@ function updateLocalStorage(start, selected){
       localStorage.setItem("favorites",favoriteList)
     }
 }
-
-
-
-
-
-
-
