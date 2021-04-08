@@ -85,10 +85,7 @@ function displayText(file){
   $(".listItem").on("click",function(){
     renderimdb(this.textContent)
   })
-
   
-  
-
   favorites()
 }
 
