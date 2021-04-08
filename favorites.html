@@ -20,23 +20,23 @@
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
     
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
     
-      <div id="navbarBasic" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a href = "index.html" class="navbar-item">
             Home
           </a>
     
           <a class="navbar-item">
             Random Movie
           </a>
-          <a href = "favorites.html" id = "favorites" class="navbar-item">
+          <a href ="favorites.html"id = "favorites"class="navbar-item">
             Favorites
           </a>
     
@@ -63,15 +63,9 @@
     </nav>
   <section class="section">
     <div class="container">
-      <h1 class="title is-1">
-        What to watch?
+      <h1 id = "title" class="title is-1">
+        Favorites
       </h1>
-      <p class="subtitle">
-        Search millions of movies!
-      </p>
-
-      <input id = "search"></input>
-      <button id = "submit">Search</button>
 
       <div id = "lists">
           <ul id = "results">
@@ -96,15 +90,6 @@
   </div>
   <!-- changed jquery to appear before out JS file -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./assets/js/returnSearch.js"></script>
+  <script src="./assets/js/favorites.js"></script>
   </body>
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>What to watch? </strong> by <a href="https://www.linkedin.com/in/hamza-sait-083371144/">Hamza Sait</a> | 
-        <a href="https://www.linkedin.com/in/jennifertrevizo/">Jennifer Trevizo</a> | 
-        <a href="https://www.linkedin.com/in/paul-dunlap-4227a51a3/">Paul Dunlap</a>
-      </p>
-    </div>
-  </footer>
 </html>
