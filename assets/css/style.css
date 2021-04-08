@@ -13,8 +13,8 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 100px;
  }
+
 .hide {
     display: none;
 }
@@ -193,13 +193,17 @@ li:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  border: solid;
+  margin-top: 80px;
   padding: 1%
 }
 
-#slideshowcontainer img{
+#slideshowcontainer img {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    height: fit-content;
 }
+
+#searchcontainer {
+  margin-left: 10%;
+}
+
