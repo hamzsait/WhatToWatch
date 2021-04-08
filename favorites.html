@@ -20,23 +20,23 @@
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
     
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
     
-      <div id="navbarBasic" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a href = "index.html" class="navbar-item">
             Home
           </a>
     
           <a id = "randomMovie" class="navbar-item">
             Random Movie
           </a>
-          <a href = "favorites.html" id = "favorites" class="navbar-item">
+          <a href ="favorites.html"id = "favorites"class="navbar-item">
             Favorites
           </a>
     
@@ -63,15 +63,9 @@
     </nav>
   <section class="section">
     <div class="container">
-      <h1 class="title is-1">
-        What to watch?
+      <h1 id = "title" class="title is-1">
+        Favorites
       </h1>
-      <p class="subtitle">
-        Search millions of movies!
-      </p>
-
-      <input id = "search"></input>
-      <button id = "submit">Search</button>
 
       <div id = "lists">
           <ul id = "results">
@@ -94,57 +88,8 @@
     </div>
     <button class= "modal-close is-large closemodal" aria-label="close"></button>
   </div>
- <!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="https://m.media-amazon.com/images/M/MV5BZmYzMzU4NjctNDI0Mi00MGExLWI3ZDQtYzQzYThmYzc2ZmNjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg">
-    <div class="text">"Godzilla vs. Kong"</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="https://m.media-amazon.com/images/M/MV5BZWNiOTc4NGItNGY4YS00ZGNkLThkOWEtMDE2ODcxODEwNjkwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
-    <div class="text">"Raya and the Last Dragon"</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="https://m.media-amazon.com/images/M/MV5BYjI3NDg0ZTEtMDEwYS00YWMyLThjYjktMTNlM2NmYjc1OGRiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg">
-    <div class="text">"Zack Snyder's Justice League"</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">4 / 5</div>
-    <img src="https://m.media-amazon.com/images/M/MV5BOGU3NTFmNjYtODc3Ny00MWEzLWI3M2ItZjE3NDgwMTI0MzkzXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg">
-    <div class="text">"Monster Hunter"</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">5 / 5</div>
-    <img src="https://m.media-amazon.com/images/M/MV5BNDg1Zjc4YzktMmRmZi00ZWJmLWJiYzgtYjg3MmE0OTM1NzY5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
-    <div class="text">"Jack Ryan"</div>
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-<br>
-
+  <!-- changed jquery to appear before out JS file -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./assets/js/returnSearch.js"></script>
+  <script src="./assets/js/favorites.js"></script>
   </body>
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>What to watch? </strong> by <a href="https://www.linkedin.com/in/hamza-sait-083371144/">Hamza Sait</a> | 
-        <a href="https://www.linkedin.com/in/jennifertrevizo/">Jennifer Trevizo</a> | 
-        <a href="https://www.linkedin.com/in/paul-dunlap-4227a51a3/">Paul Dunlap</a>
-      </p>
-    </div>
-  </footer>
 </html>
