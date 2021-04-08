@@ -122,7 +122,7 @@ function favorites(){
 function updateLocalStorage(start, selected){
 
     if(selected){
-      if (localStorage.length > 0){
+      if (localStorage.getItem("favorites") !== null){
         var movies = []
         movies.push(($(start).parent().children()[1].outerText))
         movies.push((localStorage.getItem("favorites")).split(','))
