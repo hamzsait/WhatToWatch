@@ -29,6 +29,7 @@ function renderimdb(title){
     })
 }
 
+
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -55,7 +56,6 @@ function displayText(file){
   local = (localStorage.getItem("favorites").split(","))
 
   for (x = 0; x < file.results.length; x++){
-
 
     var title = document.createElement('li')
     title.textContent = file.results[x].title
@@ -85,7 +85,7 @@ function displayText(file){
   $(".listItem").on("click",function(){
     renderimdb(this.textContent)
   })
-  
+
   favorites()
 }
 
@@ -144,7 +144,6 @@ function updateLocalStorage(start, selected){
       }
       localStorage.setItem("favorites",favoriteList)
     }
-  
 }
 
 
