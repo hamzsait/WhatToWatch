@@ -38,11 +38,11 @@ body {
     font-weight: 700; 
 }
 
-img {
+ #moviedisplay img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 60%;
     padding: 3%;
 }
 
@@ -191,7 +191,15 @@ li:hover{
 
 #slideshowcontainer{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-top: 60px
+  margin-top: 60px;
+  border: solid;
+  padding: 1%
+}
+
+#slideshowcontainer img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
