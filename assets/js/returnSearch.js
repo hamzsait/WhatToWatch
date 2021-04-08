@@ -53,8 +53,13 @@ function displayText(file){
 
   parent.innerHTML = ""
 
-  local = (localStorage.getItem("favorites").split(","))
-
+  try {
+    local = (localStorage.getItem("favorites").split(","))
+  }
+  catch {
+    local = []
+  }
+  
   for (x = 0; x < file.results.length; x++){
 
     var title = document.createElement('li')
