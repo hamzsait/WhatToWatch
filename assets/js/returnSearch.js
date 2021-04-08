@@ -6,6 +6,7 @@ var rating = document.getElementById('rated');
 var plot = document.getElementById('plot');
 var movieReviews = document.getElementById('reviews');
 var movieModal = document.getElementById('movieDisplay');
+var randomMovie = document.getElementById('randomMovie')
 
 // var movie = {submitmovie}.value.trim();
 
@@ -175,3 +176,5 @@ function updateLocalStorage(start, selected){
       localStorage.setItem("favorites",favoriteList)
     }
 }
+
+randomMovie.addEventListener("click",randomMovieGenerator)

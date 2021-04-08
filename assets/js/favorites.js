@@ -93,3 +93,34 @@ var closeModal = document.querySelectorAll(".closemodal")
 $(document).on('click', '.closemodal', function(){
   movieModal.classList.toggle("is-active");
 })
+
+  //random button
+function randomIDGenerator (){
+    var idLength = Math.floor(Math.random() * Math.floor(6));
+    var randomID= [];
+    var temp = (Math.floor(Math.random() * Math.floor(9))) + 1;
+    randomID.push(temp)
+    for (i = 0; i < idLength; i++) {
+        temp = Math.floor(Math.random() * Math.floor(10));
+        randomID.push(temp);
+    }
+    randomID = randomID.join("")
+    return randomID
+}
+
+
+
+function randomMovieGenerator() {
+  var tempID = randomIDGenerator();
+  var randomFetch = `https://api.themoviedb.org/3/movie/${tempID}?api_key=230e89ce98b6d55971d6dd92298b9018&language=en-US`
+  fetch(randomFetch)
+  .then(function(response){
+    return response.json();
+  })
+  .then (function(data){
+    console.log(data.title);
+    renderimdb(data.title)
+  })
+}
+
+randomMovie.addEventListener("click",randomMovieGenerator)
