@@ -60,8 +60,22 @@ function displayText(file){
     local = []
   }
   
-  for (x = 0; x < file.results.length; x++){
+  results = []
+  var lengthy 
 
+  if (file.results.length > 10){
+      lengthy = 10
+  }
+  else{
+    lengthy = file.results.length
+  }
+
+  for (x = 0; x < lengthy; x++){
+    if (results.includes(file.results[x].title)){
+      results.push(file.results[x].title)
+      continue
+    }
+    results.push(file.results[x].title)
     var title = document.createElement('li')
     title.textContent = file.results[x].title
     title.setAttribute("class","listItem")
