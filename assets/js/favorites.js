@@ -146,15 +146,9 @@ function showSlides() {
 function assignImages(){
 try{
     listy = localStorage.getItem("favorites").split(",")
-    if (listy.length > 5){
-        lengthy = 5
-    }
-    else{
-        lengthy = listy.length
-    }
 
 
-    for(x = 0; x<lengthy;x++){
+    for(x = 0; x<listy.length;x++){
       
             requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
             var requestOptions = {
