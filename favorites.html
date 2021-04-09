@@ -61,7 +61,8 @@
     
         <div class="navbar-end">
     </nav>
-  <section class="section">
+<div id="maincontent" class="columns is-vcentered">
+  <section id = "favContainer" class="section" class="section column is-one-third">
     <div class="container">
       <h1 id = "title" class="title is-1">
         Favorites
@@ -72,14 +73,14 @@
           </ul>
       </div>
     </div>
-    <div id="slideshowcontainer" class="slideshow-container auto">
-
-        <div id = "premiere" class="mySlides fade column-is-half">
-          <img id = "caro" src="https://m.media-amazon.com/images/M/MV5BZmYzMzU4NjctNDI0Mi00MGExLWI3ZDQtYzQzYThmYzc2ZmNjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg">
-        </div>
-    
-      </div>
   </section>
+  <div id="slideshowcontainer" class="slideshow-container auto">
+
+    <div id = "premiere" class="mySlides fade column-is-half">
+      <img id = "caro" src="https://m.media-amazon.com/images/M/MV5BZmYzMzU4NjctNDI0Mi00MGExLWI3ZDQtYzQzYThmYzc2ZmNjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg">
+    </div>
+
+  </div>
   <div id = "movieDisplay" class= "modal">
     <div class= "modal-background closemodal"></div>
     <div class="columns modal-content">
@@ -95,7 +96,7 @@
     </div>
     <button class= "modal-close is-large closemodal" aria-label="close"></button>
   </div>
-
+</div>
   <!-- changed jquery to appear before out JS file -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./assets/js/favorites.js"></script>

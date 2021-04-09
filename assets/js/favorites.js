@@ -138,7 +138,7 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides,3000);
+  setTimeout(showSlides,5000);
 };
 
 
@@ -152,7 +152,6 @@ try{
         lengthy = listy.length
     }
 
-    document.getElementById("premiere").remove()
 
     for(x = 0; x<lengthy;x++){
       

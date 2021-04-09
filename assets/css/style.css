@@ -258,3 +258,6 @@ box-shadow: inset -9px 9px 18px #1a1a1a,
   color: white;
 }
 
+#favContainer{
+    margin-left: 100px;
+}
