@@ -131,6 +131,7 @@ showSlides();
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
+  
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
@@ -144,37 +145,38 @@ function showSlides() {
 function assignImages(){
 try{
     listy = localStorage.getItem("favorites").split(",")
+    if (listy.length > 5){
+        lengthy = 5
+    }
+    else{
+        lengthy = listy.length
+    }
+
+    document.getElementById("premiere").remove()
+
+    for(x = 0; x<lengthy;x++){
+      
+            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
+            var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+            };
+        fetch(requestURL, requestOptions)
+            .then(function(response){return response.text()})
+            .then(function(result){
+                var items = JSON.parse(result)
+                newImage = document.createElement("img")
+                newImage.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + items.results[0].poster_path
+                container = document.createElement("div")
+                container.setAttribute("class", "mySlides fade column-is-half")
+
+                container.appendChild(newImage)
+                document.getElementById("slideshowcontainer").appendChild(container)
+            })
+    }
 }
 catch{
     console.log("nope")
 }
-    if (listy.length > 5){
-          lengthy = 5
-    }
-    else{
-          lengthy = listy.length
-    }
-
-    for(x = 0; x<lengthy-1;x++){
-        caro = document.getElementById("caro")
-        requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
-        var requestOptions = {
-          method: 'GET',
-          redirect: 'follow'
-        };
-      fetch(requestURL, requestOptions,caro)
-          .then(function(response){return response.text()})
-          .then(function(result){
-              var items = JSON.parse(result)
-              newImage = document.createElement("img")
-              newImage.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + items.results[0].poster_path
-              caro.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + items.results[0].poster_path
-              container = document.createElement("div")
-              container.setAttribute("class", "mySlides fade column-is-half")
-
-              container.appendChild(newImage)
-              document.getElementById("slideshowcontainer").appendChild(container)
-            })
-        }
 }
 assignImages()
