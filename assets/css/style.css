@@ -259,3 +259,10 @@ box-shadow: inset -9px 9px 18px #1a1a1a,
 #favContainer{
     margin-left: 100px;
 }
+
+@media screen and (max-width: 768px) {
+  #noodles{
+    display: flex;
+    flex-direction: column;
+  }
+}
