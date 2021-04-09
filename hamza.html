@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What to watch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicons/site.webmanifest">
+  </head>
+  <body>
+<!-- added nav bar ui -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img id = "popLogo" src="./assets/favicons/android-chrome-512x512.png" >
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href = "index.html" class="navbar-item white">
+            Home
+          </a>
+    
+          <a id = "randomMovie" class="navbar-item white">
+            Random Movie
+          </a>
+          <a href ="favorites.html"id = "favorites"class="navbar-item white">
+            Favorites
+          </a>
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link yellow">
+              Creators Picks
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a href="hamza.html" class="navbar-item">
+                Hamza's
+              </a>
+              <a href="jenny.html" class="navbar-item">
+                Jenny's
+              </a>
+              <a href="paul.html"  class="navbar-item">
+                Paul's
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+    </nav>
+    <div>
+      <h1 class="picks">Hamza's Picks</h1>
+    </div>
+    <div class="rows">
+      <div id="noodles" class="row is-one-third center">
+        <div class="column center">
+          <img class="poster"  src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg">
+        </div>
+      </div>
+      <div class="row is-one-third center">
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BOTgwMzFiMWYtZDhlNS00ODNkLWJiODAtZDVhNzgyNzJhYjQ4L2ltYWdlXkEyXkFqcGdeQXVyNzEzOTYxNTQ@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg">
+        </div>
+      </div>
+    </div>
+  <!-- changed jquery to appear before out JS file -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./assets/js/favorites.js"></script>
+  </body>
+</html>
