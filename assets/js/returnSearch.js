@@ -87,7 +87,7 @@ function displayText(file){
 
     favorite.setAttribute("class","favorite")
     star = document.createElement("i")
-    star.setAttribute("class","fa fa-star")
+    star.setAttribute("class","fa fa-star hi")
     star.setAttribute("id","star")
 
     if (local.includes(title.textContent)){
@@ -178,7 +178,6 @@ function favorites(){
     })
   }
 
-
 function updateLocalStorage(start, selected){
 
     if(selected){
@@ -208,3 +207,27 @@ function updateLocalStorage(start, selected){
 }
 
 randomMovie.addEventListener("click",randomMovieGenerator)
+
+var jennyfavs = ["inglourious basterds", "no country for old men",  "parasite", "inglorious bastards", "interstellar", "", ]
+
+function getfavs() {
+  var jenny = [];
+  for(i = 0; i < jennyfavs.length; i++){
+    console.log(jennyfavs);
+    var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+ (jennyfavs[i]);
+    fetch(imdbSearch)
+    .then(function(response){
+      return response.json();
+    })
+    .then (function(data){
+      console.log(data);
+      jenny.push(data.Poster);
+      console.log(jenny);
+      localStorage.setItem("jenny", jenny)
+    })
+
+  }
+}
+
+getfavs();
+

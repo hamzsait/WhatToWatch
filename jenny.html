@@ -36,12 +36,12 @@
           <a id = "randomMovie" class="navbar-item white">
             Random Movie
           </a>
-          <a href ="favorites.html"id = "favorites"class="navbar-item yellow">
+          <a href ="favorites.html"id = "favorites"class="navbar-item white">
             Favorites
           </a>
     
-          <div class="navbar-item has-dropdown is-hoverable ">
-            <a class="navbar-link white">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link yellow">
               Creators Picks
             </a>
     
@@ -60,33 +60,33 @@
         </div>
         <div class="navbar-end">
     </nav>
-  <section class="section">
-    <div class="container">
-      <h1 id = "title" class="title is-1">
-        Favorites
-      </h1>
-
-      <div id = "lists">
-          <ul id = "results">
-          </ul>
+    <div>
+      <h1 class="picks">Jenny's Picks</h1>
+    </div>
+    <div class="rows">
+      <div id="noodles" class="row is-one-third center">
+        <div class="column center">
+          <img class="poster"  src="https://m.media-amazon.com/images/M/MV5BMjA5NDEyMjQwNV5BMl5BanBnXkFtZTgwNDQ1MjMwMDI@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://images-na.ssl-images-amazon.com/images/I/511xIMAPXuL._AC_.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BY2ZiYWUxN2ItYmQxZi00NDlkLWE2NDAtOTNmYTg1MDI0NDk1XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg">
+        </div>
+      </div>
+      <div class="row is-one-third center">
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMzQxNjM5NzkxNV5BMl5BanBnXkFtZTcwMzg5NDMwMg@@._V1_SX300.jpg">
+        </div>
+        <div class="column center">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMjRiYTNjODctNGU1Ni00NDg3LTk0NGUtMWU0NjgyZTAyYmNjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
+        </div>
       </div>
     </div>
-  </section>
-  <div id = "movieDisplay" class= "modal">
-    <div class= "modal-background closemodal"></div>
-    <div class="columns modal-content">
-      <div id="postersection"class="column is-half">
-      </div>
-      <div id= "infoSection" class="column is-one-quarter">
-        <h1 id= "movietitle"></h1><span id="releaseyear"> </span>
-        <h2 id ="genre"></h2>
-        <div class="rated"><span id="rated"></span></div>
-        <p id="plot"></p>
-        <p id="reviews"></p>
-      </div>
-    </div>
-    <button class= "modal-close is-large closemodal" aria-label="close"></button>
-  </div>
   <!-- changed jquery to appear before out JS file -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./assets/js/favorites.js"></script>
