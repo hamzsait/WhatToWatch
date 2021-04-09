@@ -23,6 +23,7 @@ if ((localStorage.getItem("favorites") !== null)){
             var favorite = document.createElement("button")
 
             contain.style.display = "flex"
+            contain.style.margin = "5px"
 
             title.textContent = file[x]
             title.setAttribute("class","listItem")

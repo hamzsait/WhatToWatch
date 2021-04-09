@@ -84,6 +84,7 @@ function displayText(file){
     contain = document.createElement("div")
 
     contain.style.display = "flex"
+    contain.style.margin = "5px"
 
     favorite.setAttribute("class","favorite")
     star = document.createElement("i")
