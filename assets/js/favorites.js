@@ -23,6 +23,7 @@ if ((localStorage.getItem("favorites") !== null)){
             var favorite = document.createElement("button")
 
             contain.style.display = "flex"
+            contain.style.margin = "5px"
 
             title.textContent = file[x]
             title.setAttribute("class","listItem")
@@ -87,6 +88,7 @@ function renderimdb(title){
         plot.textContent = data.Plot;
     })
 }
+    
 
 var closeModal = document.querySelectorAll(".closemodal")
 
@@ -118,9 +120,63 @@ function randomMovieGenerator() {
     return response.json();
   })
   .then (function(data){
-    console.log(data.title);
     renderimdb(data.title)
   })
 }
 
 randomMovie.addEventListener("click",randomMovieGenerator)
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides,5000);
+};
+
+
+function assignImages(){
+try{
+    listy = localStorage.getItem("favorites").split(",")
+    if (listy.length > 5){
+        lengthy = 5
+    }
+    else{
+        lengthy = listy.length
+    }
+
+
+    for(x = 0; x<lengthy;x++){
+      
+            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
+            var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+            };
+        fetch(requestURL, requestOptions)
+            .then(function(response){return response.text()})
+            .then(function(result){
+                var items = JSON.parse(result)
+                newImage = document.createElement("img")
+                newImage.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + items.results[0].poster_path
+                container = document.createElement("div")
+                container.setAttribute("class", "mySlides fade column-is-half")
+
+                container.appendChild(newImage)
+                document.getElementById("slideshowcontainer").appendChild(container)
+            })
+    }
+}
+catch{
+    console.log("nope")
+}
+}
+assignImages()

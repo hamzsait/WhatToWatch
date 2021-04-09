@@ -13,7 +13,7 @@ var randomMovie = document.getElementById('randomMovie')
 function renderimdb(title){
     movieModal.classList.toggle("is-active");
     posterSection.innerHTML = ''
-    var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+title
+    var imdbSearch = `https://www.omdbapi.com/?apikey=1ac23809&t=`+title
     fetch(imdbSearch)
     .then (function(response){
         return response.json();
@@ -84,6 +84,7 @@ function displayText(file){
     contain = document.createElement("div")
 
     contain.style.display = "flex"
+    contain.style.margin = "5px"
 
     favorite.setAttribute("class","favorite")
     star = document.createElement("i")
