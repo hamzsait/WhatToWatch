@@ -130,7 +130,7 @@ randomMovie.addEventListener("click",randomMovieGenerator)
 
 
 function assignImages(){
-try{
+
     listy = localStorage.getItem("favorites").split(",")
 
 
@@ -154,11 +154,14 @@ try{
                 document.getElementById("slideshowcontainer").appendChild(container)
             })
     }
-    console.log(document.getElementsByClassName("mySlides").item(0))
-    console.log(document.getElementsByClassName("mySlides"))
-}
-catch{
-    console.log("nope")
-}
+    const mySlides = document.getElementsByClassName("mySlides")
+    [...mySlides].forEach((slide) => console.log(slide))
+
+
+    console.log(mySlides)
+    console.log(document.getElementsByClassName("mySlides")[0])
+    console.log(document.getElementsByClassName("mySlides").length)
+
+
 }
 assignImages()
