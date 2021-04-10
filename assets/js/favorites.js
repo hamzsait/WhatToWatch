@@ -131,6 +131,7 @@ randomMovie.addEventListener("click",randomMovieGenerator)
 
 function assignImages(){
 
+try{
     listy = localStorage.getItem("favorites").split(",");
 
 
@@ -177,6 +178,9 @@ function assignImages(){
     //     boxArray.push(boxes[i]);
     // }
 
-
+}
+catch{
+    console.log("error")
+}
 }
 assignImages();
