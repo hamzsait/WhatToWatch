@@ -131,12 +131,12 @@ randomMovie.addEventListener("click",randomMovieGenerator)
 
 function assignImages(){
 
-    listy = localStorage.getItem("favorites").split(",")
+    listy = localStorage.getItem("favorites").split(",");
 
 
     for(x = 0; x<listy.length-1;x++){
       
-            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
+            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x];
             var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -152,16 +152,17 @@ function assignImages(){
 
                 container.appendChild(newImage)
                 document.getElementById("slideshowcontainer").appendChild(container)
-            })
+            });
     }
-    const mySlides = document.getElementsByClassName("mySlides")
-    [...mySlides].forEach((slide) => console.log(slide))
+    const mySlides = document.getElementsByClassName("mySlides");
+    var arrOfmySlides = [...mySlides];
+    arrOfmySlides.forEach((slide) => console.log(slide));
 
 
-    console.log(mySlides)
-    console.log(document.getElementsByClassName("mySlides")[0])
-    console.log(document.getElementsByClassName("mySlides").length)
+    console.log(mySlides);
+    console.log(document.getElementsByClassName("mySlides")[0]);
+    console.log(document.getElementsByClassName("mySlides").length);
 
 
 }
-assignImages()
+assignImages();
