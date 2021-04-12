@@ -155,32 +155,26 @@ try{
             })
     }
 
-    if (x === listy.length-1){
-        const mySlides = document.getElementsByClassName("mySlides");
-        var arrOfmySlides = [...mySlides];
-        arrOfmySlides.forEach((slide) => console.log(slide));
+    var i = 0;                 
+    var slides = document.getElementsByClassName("mySlides")
 
-
-        console.log(mySlides);
-        console.log(mySlides.length);
-        console.log([].slice.call(mySlides));
-        console.log(Array.from(mySlides));
+    function myLoop() {   
+        setTimeout(function() {
+            for(x = 0; x < slides.length; x++){
+                slides[x].style.display = "none"
+            }
+            slides[i % slides.length].style.display = 'block' 
+            i++
+            myLoop()                 
+        }, 3000)
     }
-    
-    // const boxes = document.getElementsByClassName('mySlides');
-    // console.log(boxes)
-    // const boxArray = [];
+    myLoop();
 
-    // for (let i = 0; i < boxes.length; i++) {
-    //     console.log(boxes[i]);
 
-    //     // At this point we could also push the elements to an array
-    //     boxArray.push(boxes[i]);
-    // }
 
 }
-catch{
-    console.log("error")
+catch(ex){
+    console.log(ex)
 }
 }
 assignImages();
