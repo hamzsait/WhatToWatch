@@ -156,9 +156,13 @@ try{
     }
 
     var i = 0;                 
-    var slides = document.getElementsByClassName("mySlides")
-
+    
+    timer = 300
     function myLoop() {   
+        var slides = document.getElementsByClassName("mySlides")
+        if (i !== 0){
+            timer = 3000
+        }
         setTimeout(function() {
             for(x = 0; x < slides.length; x++){
                 slides[x].style.display = "none"
@@ -166,7 +170,7 @@ try{
             slides[i % slides.length].style.display = 'block' 
             i++
             myLoop()                 
-        }, 3000)
+        }, timer)
     }
     myLoop();
 

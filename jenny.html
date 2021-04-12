@@ -63,6 +63,21 @@
     <div>
       <h1 class="picks">Jenny's Picks</h1>
     </div>
+    <div id = "movieDisplay" class= "modal">
+      <div class= "modal-background closemodal"></div>
+      <div class="columns modal-content">
+        <div id="postersection"class="column is-half">
+        </div>
+        <div id= "infoSection" class="column is-one-quarter">
+          <h1 id= "movietitle"></h1><span id="releaseyear"> </span>
+          <h2 id ="genre"></h2>
+          <div class="rated"><span id="rated"></span></div>
+          <p id="plot"></p>
+          <p id="reviews"></p>
+        </div>
+      </div>
+      <button class= "modal-close is-large closemodal" aria-label="close"></button>
+    </div>
     <div class="rows">
       <div id="noodles" class="row is-one-third center">
         <div class="column center">
@@ -89,6 +104,6 @@
     </div>
   <!-- changed jquery to appear before out JS file -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./assets/js/favorites.js"></script>
+  <script src="./assets/js/returnSearch.js"></script>
   </body>
 </html>
