@@ -7,7 +7,7 @@ var plot = document.getElementById('plot');
 var movieReviews = document.getElementById('reviews');
 var movieModal = document.getElementById('movieDisplay');
 var randomMovie = document.getElementById('randomMovie')
-
+var index = 0; 
 // var movie = {submitmovie}.value.trim();
 
 function renderimdb(title){
@@ -48,7 +48,7 @@ function search (){
 
 
 function displayText(file){
-
+  
   parent = document.querySelector("#results")
 
   parent.innerHTML = ""
@@ -107,11 +107,17 @@ function displayText(file){
   })
 
   favorites()
+  assignImages()
 }
 
+try{
 document.querySelector("#submit").addEventListener("click", function(){
   search()
 })
+}
+catch{
+  console.log("No submit button")
+}
 
 // closing modal
 var closeModal = document.querySelectorAll(".closemodal")
@@ -149,22 +155,6 @@ function randomMovieGenerator() {
     renderimdb(data.title)
   })
 }
-
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 5000);
-   // Change image every 2 seconds
-};
 
 function favorites(){
   $(".favorite").on("click",function(){
@@ -209,6 +199,68 @@ function updateLocalStorage(start, selected){
 
 randomMovie.addEventListener("click",randomMovieGenerator)
 
-var jennyfavs = ["inglourious basterds", "no country for old men",  "parasite", "inglorious bastards", "interstellar", "", ]
+function assignImages(){
 
+  
+
+  try{
+
+      results = document.getElementById("results")
+
+      results = [...results.children]
+      listy = []
+      results.forEach(function(slides){
+        listy.push(slides.innerText)
+      })
+
+      document.querySelector("#slideshowcontainer").innerHTML = ""
+      i = 0
+  
+      for(x = 0; x<listy.length-1;x++){
+              requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x];
+              var requestOptions = {
+              method: 'GET',
+              redirect: 'follow'
+              };
+          fetch(requestURL, requestOptions)
+              .then(function(response){return response.text()})
+              .then(function(result){
+                  var items = JSON.parse(result)
+                  newImage = document.createElement("img")
+                  newImage.src = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + items.results[0].poster_path
+                  container = document.createElement("div")
+                  container.setAttribute("class", "mySlides fade column-is-half")
+  
+                  container.appendChild(newImage)
+                  document.getElementById("slideshowcontainer").appendChild(container)
+              })
+      }
+    index = 0
+    myLoop(false)
+  }
+  catch(ex){
+      console.log(ex)
+  }
+  }
+
+                  
+      
+  timer = 300
+  function myLoop(running) {
+      var slides = document.getElementsByClassName("mySlides")
+      if (index !== 0){
+          clearTimeout(base)
+      }
+      if(running){
+        timer = 3000
+      }
+      base = setTimeout(function() {
+          for(x = 0; x < slides.length; x++){
+              slides[x].style.display = "none"
+          }
+          slides[index % slides.length].style.display = 'block' 
+          index++
+          myLoop(true)                 
+      }, timer)
+  }
 
