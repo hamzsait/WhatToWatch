@@ -126,31 +126,17 @@ function randomMovieGenerator() {
 
 randomMovie.addEventListener("click",randomMovieGenerator)
 
-var slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides,5000);
-};
 
 
 function assignImages(){
+
 try{
-    listy = localStorage.getItem("favorites").split(",")
+    listy = localStorage.getItem("favorites").split(",");
 
 
-    for(x = 0; x<listy.length;x++){
-      
-            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x]
+    for(x = 0; x<listy.length-1;x++){
+            requestURL = "https://api.themoviedb.org/3/search/movie?api_key=230e89ce98b6d55971d6dd92298b9018&query=" + listy[x];
             var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -168,9 +154,27 @@ try{
                 document.getElementById("slideshowcontainer").appendChild(container)
             })
     }
+
+    var i = 0;                 
+    var slides = document.getElementsByClassName("mySlides")
+
+    function myLoop() {   
+        setTimeout(function() {
+            for(x = 0; x < slides.length; x++){
+                slides[x].style.display = "none"
+            }
+            slides[i % slides.length].style.display = 'block' 
+            i++
+            myLoop()                 
+        }, 3000)
+    }
+    myLoop();
+
+
+
 }
-catch{
-    console.log("nope")
+catch(ex){
+    console.log(ex)
 }
 }
-assignImages()
+assignImages();
