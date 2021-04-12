@@ -7,7 +7,6 @@ var plot = document.getElementById('plot');
 var movieReviews = document.getElementById('reviews');
 var movieModal = document.getElementById('movieDisplay');
 var randomMovie = document.getElementById('randomMovie')
-var index = 0; 
 // var movie = {submitmovie}.value.trim();
 
 function renderimdb(title){
@@ -244,7 +243,7 @@ function assignImages(){
   }
 
                   
-      
+  var index = 0; 
   timer = 300
   function myLoop(running) {
       var slides = document.getElementsByClassName("mySlides")
