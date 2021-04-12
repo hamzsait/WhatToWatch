@@ -72,7 +72,7 @@ else{
 function renderimdb(title){
     movieModal.classList.toggle("is-active");
     posterSection.innerHTML = ''
-    var imdbSearch = `http://www.omdbapi.com/?apikey=1ac23809&t=`+title
+    var imdbSearch = `https://www.omdbapi.com/?apikey=1ac23809&t=`+title
     fetch(imdbSearch)
     .then (function(response){
         return response.json();
